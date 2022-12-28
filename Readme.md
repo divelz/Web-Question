@@ -6,7 +6,7 @@
 
 ![Image from the website](Image1.png)
 
-link: [Go to the website.](https://divelz.github.io/Question/)
+link: [Go to the website.](https://divelz.github.io/Web-Question/)
 
 **Best regard !!!**
 
