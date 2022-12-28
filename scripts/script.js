@@ -66,7 +66,7 @@ const entender = (file_json, strToJSON=true) => {
 
 // ************ ************ Crear Elementos ************ ************ //
 
-let info = $info('math', 10);
+let info = $info('math', 3);
 let infor = entender(info, false);
 
 const generate_ = () => {

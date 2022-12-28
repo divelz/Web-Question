@@ -1,4 +1,4 @@
-let $$suma = (menor=0, mayor=10, num_ques=4) => {
+const $$suma = (menor=0, mayor=10, num_ques=4) => {
     let num1 = $$randInt(menor, mayor);
     let num2 = $$randInt(menor, mayor);
     let res = num1 + num2;
@@ -11,7 +11,7 @@ let $$suma = (menor=0, mayor=10, num_ques=4) => {
     ];
 }
 
-let $$resta = (menor=0, mayor=10, num_ques=4, num_neg=false) => {
+const $$resta = (menor=0, mayor=10, num_ques=4, num_neg=false) => {
     let num1 = $$randInt(menor, mayor);
     let num2 = $$randInt(menor, mayor);
     
@@ -30,7 +30,7 @@ let $$resta = (menor=0, mayor=10, num_ques=4, num_neg=false) => {
     ];
 }
 
-let $$multiplicacion = (menor=0, mayor=10, num_ques=4) => {
+const $$multiplicacion = (menor=0, mayor=10, num_ques=4) => {
     let num1 = $$randInt(menor, mayor);
     let num2 = $$randInt(menor, mayor);
     
@@ -51,7 +51,7 @@ let $$multiplicacion = (menor=0, mayor=10, num_ques=4) => {
     ];
 }
 
-let $$divicion = (menor=0, mayor=10, num_ques=4) => {
+const $$divicion = (menor=0, mayor=10, num_ques=4) => {
     let num1 = $$randInt(menor, mayor);
     let res = $$randInt(menor, mayor);
     let num2 = num1 * res;
@@ -64,12 +64,28 @@ let $$divicion = (menor=0, mayor=10, num_ques=4) => {
     ];
 }
 
-let $$crear_fracciones = (num, den) => {
+const chars_ = 'abcdefghijklmnñopqrstuvwxz';
+
+const $$sum_algebraica = () => {
+    let num1 = $$randInt(menor, mayor);
+    let num2 = $$randInt(menor, mayor);
+    let res = num1 + num2;
+
+    return [
+        res, `Cuanto vale {} ${num1} + ${num2} = `, 
+        $$shuffle( $$nums_generate(
+            num_ques,  res-(res >= 10 ? 10 : res), res+10, res
+        ))
+    ];
+} 
+
+
+const $$crear_fracciones = (num, den) => {
     return `<table class=\\"dibujar fr\\"> <th>${num}</th> <td>${den}</td> </table>`
 }
 
 
-let $$Operaciones = (nivel, num_ques=4) => { // local opcion = lopc
+const $$Operaciones = (nivel, num_ques=4) => { // local opcion = lopc
     let lopc_='', lops_=[], lopc_o_='';
     let operacion = 'aritmetica';
     nivel = nivel ?? 0;
@@ -96,12 +112,15 @@ let $$Operaciones = (nivel, num_ques=4) => { // local opcion = lopc
     } else if (nivel === 3) {
         let mult = $$multiplicacion(0, 10, num_ques-1);
         mult[2] = $$shuffle( mult[2].concat(15) );
-        console.log(mult)
 
         op = $$choice_([
-            $$shuffle(mult), $$divicion(0, 10, num_ques)
+            mult, $$divicion(0, 10, num_ques)
         ]);
+    
+    } else if (nivel === 4) { 
+
     }
+
 
     if (operacion === 'aritmetica') {
         lopc_o_ = `Resolver: ${op[1]}`;
