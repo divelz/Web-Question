@@ -2,11 +2,12 @@
 
 #3 Project on the web using Html, Css, Javascript. Question fields.
 
-* Boton de cambio de colores.
-* Varios campos de opciones.
-* Boton de verificar.
-* Boton Siguiente para nuevas preguntas.
-* Al final tiene el nombre del autor.
+* Color change button.
+* Various fields of options.
+* Verify button.
+* Next button for new questions.
+* At the end it has the name of the author.
+* etc...
 
 **Image 1**
 
